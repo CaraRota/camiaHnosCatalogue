@@ -1,13 +1,22 @@
 import React from "react";
 import OutlineBtn from "../uicomponents/OutlineBtn";
 
-const ProductsCard = ({ product }) => {
-    console.log("this is a product card", product);
-
+const ProductsCard = ({ product, chargePayments }) => {
+    const { cards, boston } = chargePayments;
     const parsedPrice = parseFloat(product[6]);
 
+    const calculateInstallment = (price, cuotas, porcentaje, fijo) => {
+        const totalCuotas = (price * (1 + porcentaje) + parseFloat(fijo)) / cuotas;
+        const parsedCuotas = totalCuotas.toLocaleString("es-AR", {
+            style: "currency",
+            currency: "ARS",
+            maximumFractionDigits: 0,
+        });
+        return parsedCuotas;
+    };
+
     return (
-        <div className='focus:outline-none mx-2 w-72 xl:mb-0 mb-8 border border-slate-500 rounded-lg py-2 hover:shadow-md hover:shadow-slate-500 hover:transition cursor-pointer'>
+        <div className='focus:outline-none mx-2 w-72 xl:mb-0 mb-8 bg-white border border-slate-500 rounded-lg py-2 hover:shadow-md hover:shadow-san-juan-500 hover:transition cursor-pointer'>
             <div>
                 <img
                     className='focus:outline-none object-fit h-48 mx-auto'
@@ -53,14 +62,34 @@ const ProductsCard = ({ product }) => {
                     <p className='focus:outline-none text-xs text-gray-600 mt-2'>{product[2]}</p>
                     <div className='flex mt-4'>
                         <div>
-                            <p className='focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1'>
-                                6 x ${(parsedPrice * 1.3) / 6}
-                            </p>
+                            {cards.map((card, index) => (
+                                <p
+                                    key={index}
+                                    className='focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1'>
+                                    {card.cuotas} cuotas de{" "}
+                                    {calculateInstallment(
+                                        product[6],
+                                        card.cuotas,
+                                        card.porcentaje,
+                                        card.fijo
+                                    )}
+                                </p>
+                            ))}
                         </div>
                         <div className='pl-2'>
-                            <p className='focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1'>
-                                Complete box
-                            </p>
+                            {boston.map((boston, index) => (
+                                <p
+                                    key={index}
+                                    className='focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1'>
+                                    {boston.cuotas} cuotas de{" "}
+                                    {calculateInstallment(
+                                        parsedPrice,
+                                        boston.cuotas,
+                                        boston.porcentaje,
+                                        boston.fijo
+                                    )}
+                                </p>
+                            ))}
                         </div>
                     </div>
                     <OutlineBtn>Reservar</OutlineBtn>

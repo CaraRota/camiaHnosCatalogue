@@ -3,7 +3,7 @@ import Products from "./products/Products";
 
 const Homepage = () => {
     return (
-        <div className='flex justify-center items-center bg-white text-black shadow-sm font-mono'>
+        <div className='flex justify-center items-center text-black font-mono'>
             <Products />
         </div>
     );
