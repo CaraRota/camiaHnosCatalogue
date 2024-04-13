@@ -1,14 +1,18 @@
 import React from "react";
+import OutlineBtn from "../uicomponents/OutlineBtn";
 
 const ProductsCard = ({ product }) => {
     console.log("this is a product card", product);
+
+    const parsedPrice = parseFloat(product[6]);
+
     return (
         <div className='focus:outline-none mx-2 w-72 xl:mb-0 mb-8 border border-slate-500 rounded-lg py-2 hover:shadow-md hover:shadow-slate-500 hover:transition cursor-pointer'>
             <div>
                 <img
                     className='focus:outline-none object-fit h-48 mx-auto'
                     alt={product[0]}
-                    src={product[2]}
+                    src={product[5]}
                 />
             </div>
             <div className='bg-white'>
@@ -31,7 +35,7 @@ const ProductsCard = ({ product }) => {
                     </div>
                     <div className='bg-yellow-200 py-1.5 px-6 rounded-full'>
                         <p className='focus:outline-none text-xs text-yellow-700 font-bold'>
-                            {parseFloat(product[6]).toLocaleString("es-AR", {
+                            {parsedPrice.toLocaleString("es-AR", {
                                 style: "currency",
                                 currency: "ARS",
                                 maximumFractionDigits: 0,
@@ -42,16 +46,15 @@ const ProductsCard = ({ product }) => {
                 <div className='p-4'>
                     <div className='flex items-center'>
                         <h2 className='focus:outline-none text-lg font-semibold'>{product[0]}</h2>
-                        <p className='focus:outline-none text-xs text-gray-600 pl-5'>4 days ago</p>
+                        <p className='focus:outline-none text-xs text-gray-600 pl-5'>
+                            {product[1]}
+                        </p>
                     </div>
-                    <p className='focus:outline-none text-xs text-gray-600 mt-2'>
-                        The Apple iPhone XS is available in 3 colors with 64GB memory. Shoot amazing
-                        videos
-                    </p>
+                    <p className='focus:outline-none text-xs text-gray-600 mt-2'>{product[2]}</p>
                     <div className='flex mt-4'>
                         <div>
                             <p className='focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1'>
-                                12 months warranty
+                                6 x ${(parsedPrice * 1.3) / 6}
                             </p>
                         </div>
                         <div className='pl-2'>
@@ -60,12 +63,7 @@ const ProductsCard = ({ product }) => {
                             </p>
                         </div>
                     </div>
-                    <div className='flex items-center justify-between py-4'>
-                        <h2 className='focus:outline-none text-indigo-700 text-xs font-semibold'>
-                            Bay Area, San Francisco
-                        </h2>
-                        <h3 className='focus:outline-none text-indigo-700 text-xl font-semibold'></h3>
-                    </div>
+                    <OutlineBtn>Reservar</OutlineBtn>
                 </div>
             </div>
         </div>

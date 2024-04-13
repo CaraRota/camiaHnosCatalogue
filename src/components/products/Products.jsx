@@ -21,7 +21,8 @@ const Products = () => {
                     `https://sheets.googleapis.com/v4/spreadsheets/${sheetID}/values/${sheetName}!${startRow}:999999?key=${APIKey}`
                 );
                 const results = response.data.values;
-                const filteredResults = results.filter((row) => row[0] !== "");
+                const filteredResults = results.filter((row) => row[0] && row[3] !== "");
+                console.log("Filtered Results", filteredResults);
                 setError(null);
                 setData(filteredResults);
             } catch (error) {
