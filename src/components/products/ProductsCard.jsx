@@ -37,11 +37,11 @@ const ProductsCard = ({ product, chargePayments }) => {
                     <CardsPayment price={price} cards={cards} />
                     <BostonPayment price={price} boston={boston} />
                 </div>
-                <div className='flex justify-center'>
-                    <OutlineBtn onClick={() => handleContact(title, parsedPrice)}>
-                        Reservar
-                    </OutlineBtn>
-                </div>
+                <a onClick={() => handleContact(title)}>
+                    <div className='flex justify-center'>
+                        <OutlineBtn>Reservar</OutlineBtn>
+                    </div>
+                </a>
             </div>
         </div>
     );
