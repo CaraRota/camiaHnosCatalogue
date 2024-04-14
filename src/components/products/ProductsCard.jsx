@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import OutlineBtn from "../uicomponents/OutlineBtn";
 import CardsPayment from "./CardsPayment";
 import BostonPayment from "./BostonPayment";
 import { handleContact } from "../../config/sendMessage";
+import ProductsDescription from "./ProductsDescription";
 
 const ProductsCard = ({ product, chargePayments }) => {
     const { cards, boston } = chargePayments;
-    const [seeMore, setSeeMore] = useState(false);
 
     const title = product[0];
     const brand = product[1];
@@ -20,7 +20,7 @@ const ProductsCard = ({ product, chargePayments }) => {
     });
 
     return (
-        <div className='mx-auto bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
+        <div className='mx-auto bg-white backdrop-blur-md bg-opacity-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
             <img className='focus:outline-none object-fit h-48 mx-auto' alt={title} src={image} />
             <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
@@ -33,27 +33,7 @@ const ProductsCard = ({ product, chargePayments }) => {
                     </div>
                 </div>
                 <h2 className='text-lg font-bold text-san-juan-900 mb-2'>{title}</h2>
-                {description.length > 120 ? (
-                    <p className='flex flex-col text-sm text-san-juan-700 mb-4'>
-                        {seeMore ? description : `${description.slice(0, 120)}...`}
-                        {seeMore ? (
-                            <a
-                                className='text-rose-400 cursor-pointer hover:text-rose-500'
-                                onClick={() => setSeeMore(false)}>
-                                Ver menos
-                            </a>
-                        ) : (
-                            <a
-                                className='text-rose-400 cursor-pointer hover:text-rose-500'
-                                onClick={() => setSeeMore(true)}>
-                                Ver más
-                            </a>
-                        )}
-                    </p>
-                ) : (
-                    <p className='text-sm text-san-juan-700 mb-4'>{description}</p>
-                )}
-
+                <ProductsDescription description={description} />
                 <div className='flex justify-between mb-4 gap-2'>
                     <CardsPayment price={price} cards={cards} />
                     <BostonPayment price={price} boston={boston} />
