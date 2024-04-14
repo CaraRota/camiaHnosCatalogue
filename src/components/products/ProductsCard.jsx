@@ -31,7 +31,7 @@ const ProductsCard = ({ product, chargePayments }) => {
                         <span className='text-san-juan-800 font-bold'>{parsedPrice}</span>
                     </div>
                 </div>
-                <h2 className='text-lg font-semibold text-san-juan-900 mb-2'>{title}</h2>
+                <h2 className='text-lg font-bold text-san-juan-900 mb-2'>{title}</h2>
                 <p className='text-sm text-san-juan-700 mb-4'>{description}</p>
                 <div className='flex justify-between mb-4 gap-2'>
                     <CardsPayment price={price} cards={cards} />

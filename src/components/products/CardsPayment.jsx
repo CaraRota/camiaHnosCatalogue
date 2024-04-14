@@ -4,24 +4,26 @@ import { calculateInstallment } from "../../config/calculateInstallments";
 
 const CardsPayment = ({ price, cards }) => {
     return (
-        <div className='border border-san-juan-100 rounded-md'>
+        <div className='border border-san-juan-100 rounded-md flex-1'>
             <div className='flex items-center mb-3'>
                 <img
                     className='focus:outline-none size-7'
                     src={cardsIcon}
                     alt='Tarjeta de Credito'
                 />
-                <p className='focus:outline-none text-xs text-san-juan-950 pl-2'>
-                    Tarjeta de Credito
-                </p>
+                <div className='focus:outline-none text-xs text-san-juan-900 pl-2'>
+                    <p>Tarjeta de Credito</p>
+                </div>
             </div>
             {cards.map((card, index) => (
-                <p
+                <div
                     key={index}
-                    className='focus:outline-none text-xs text-san-juan-950 px-2 bg-san-juan-100 py-1'>
-                    {card.cuotas} cuotas de{" "}
-                    {calculateInstallment(price, card.cuotas, card.porcentaje, card.fijo)}
-                </p>
+                    className='focus:outline-none text-xs text-san-juan-900 px-2 bg-san-juan-100 py-1'>
+                    <p className='text-san-juan-900'>{card.cuotas} cuotas de</p>
+                    <p className='text-san-juan-500'>
+                        {calculateInstallment(price, card.cuotas, card.porcentaje, card.fijo)}
+                    </p>
+                </div>
             ))}
         </div>
     );
