@@ -11,12 +11,12 @@ const BostonPayment = ({ price, boston }) => {
                     src={bostonIcon}
                     alt='Credito Boston'
                 />
-                <p className='focus:outline-none text-xs text-gray-600 pl-2'>Credito Boston</p>
+                <p className='focus:outline-none text-xs text-san-juan-950 pl-2'>Credito Boston</p>
             </div>
             {boston.map((boston, index) => (
                 <p
                     key={index}
-                    className='focus:outline-none text-xs text-gray-600 px-2 bg-gray-200 py-1'>
+                    className='focus:outline-none text-xs text-san-juan-950 px-2 bg-san-juan-100 py-1'>
                     {boston.cuotas} cuotas de{" "}
                     {calculateInstallment(price, boston.cuotas, boston.porcentaje, boston.fijo)}
                 </p>
