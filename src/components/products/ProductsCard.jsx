@@ -20,7 +20,7 @@ const ProductsCard = ({ product, chargePayments }) => {
     });
 
     return (
-        <div className='mx-auto bg-white backdrop-blur-md bg-opacity-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
+        <div className='mx-auto bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
             <img className='focus:outline-none object-fit h-48 mx-auto' alt={title} src={image} />
             <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
