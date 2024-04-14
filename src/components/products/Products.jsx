@@ -10,8 +10,6 @@ const Products = () => {
     const [loading, setLoading] = useState(false);
     const sheetName = "Catalogo"; // Name of the Tab in Google Sheet
     const startRow = 2; // Skip header
-    const [chargePercentage, setChargePercentage] = useState([]);
-    const [chargeFixed, setChargeFixed] = useState([]);
     const [chargePayments, setChargePayments] = useState({});
 
     const handleChargePayments = (percentageArray, fixedArray) => {
@@ -70,10 +68,6 @@ const Products = () => {
                 ];
                 const fixedArray = [results[0][10], results[1][10], results[2][10], results[3][10]];
 
-                setChargePercentage(percentageArray);
-                setChargeFixed(fixedArray);
-
-                // Call handleChargePayments after setting chargePercentage and chargeFixed
                 handleChargePayments(percentageArray, fixedArray);
             } catch (error) {
                 setError(error.message);
@@ -83,7 +77,7 @@ const Products = () => {
         };
 
         fetchData();
-    }, []); // Empty dependency array to run effect only once on component mount
+    }, []);
 
     return (
         <div className='my-5'>
