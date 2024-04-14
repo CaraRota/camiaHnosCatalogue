@@ -1,9 +1,12 @@
 import React from "react";
 import OutlineBtn from "../uicomponents/OutlineBtn";
-import CardsPayment from "./CardsPayment";
-import BostonPayment from "./BostonPayment";
 import { handleContact } from "../../config/sendMessage";
 import ProductsDescription from "./ProductsDescription";
+
+//Images
+import cardsIcon from "../../assets/creditCardIcon.png";
+import bostonIcon from "../../assets/bostonIcon.png";
+import CalculateInstallments from "./CalculateInstallments";
 
 const ProductsCard = ({ product, chargePayments }) => {
     const { cards, boston } = chargePayments;
@@ -35,8 +38,20 @@ const ProductsCard = ({ product, chargePayments }) => {
                 <h2 className='text-lg font-bold text-san-juan-900 mb-2'>{title}</h2>
                 <ProductsDescription description={description} />
                 <div className='flex justify-between mb-4 gap-2'>
-                    <CardsPayment price={price} cards={cards} />
-                    <BostonPayment price={price} boston={boston} />
+                    <CalculateInstallments
+                        price={price}
+                        payments={cards}
+                        icon={cardsIcon}
+                        textLine1='Tarjeta'
+                        textLine2='de Crédito'
+                    />
+                    <CalculateInstallments
+                        price={price}
+                        payments={boston}
+                        icon={bostonIcon}
+                        textLine1='Crédito'
+                        textLine2='Boston'
+                    />
                 </div>
                 <a onClick={() => handleContact(title)}>
                     <div className='flex justify-center'>
