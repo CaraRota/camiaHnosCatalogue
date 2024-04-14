@@ -12,7 +12,8 @@ const CardsPayment = ({ price, cards }) => {
                     alt='Tarjeta de Credito'
                 />
                 <div className='focus:outline-none text-xs text-san-juan-900 pl-2'>
-                    <p>Tarjeta de Credito</p>
+                    <p>Tarjetas</p>
+                    <p>de Credito</p>
                 </div>
             </div>
             {cards.map((card, index) => (
