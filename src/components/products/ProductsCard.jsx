@@ -7,6 +7,7 @@ import ProductsDescription from "./ProductsDescription";
 import cardsIcon from "../../assets/creditCardIcon.png";
 import bostonIcon from "../../assets/bostonIcon.png";
 import CalculateInstallments from "./CalculateInstallments";
+import ProductImage from "./ProductImage";
 
 const ProductsCard = ({ product, chargePayments }) => {
     const { cards, boston } = chargePayments;
@@ -24,7 +25,7 @@ const ProductsCard = ({ product, chargePayments }) => {
 
     return (
         <div className='mx-auto bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
-            <img className='focus:outline-none object-fit h-48 mx-auto' alt={title} src={image} />
+            <ProductImage image={image} title={title} />
             <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
                     <span className='bg-san-juan-500 text-white text-sm px-2 py-1 rounded-full uppercase font-bold'>
