@@ -1,22 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ProductImage = ({ image, title }) => {
     const [isLoading, setIsLoading] = useState(true);
 
-    return image || !isLoading ? (
-        <img
-            className='focus:outline-none object-fit h-48 mx-auto'
-            alt={title}
-            src={image}
-            onLoad={() => setIsLoading(false)}
-        />
+    useEffect(() => {
+        const img = new Image();
+        img.src = image;
+        img.onload = () => setIsLoading(false);
+        img.onerror = () => setIsLoading(true);
+    }, [image]);
+
+    return !isLoading ? (
+        <img className='focus:outline-none object-fit h-48 mx-auto' alt={title} src={image} />
     ) : (
         <div
             role='status'
             className='space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center'>
-            <div className='flex items-center justify-center w-full h-48 bg-gray-300 rounded-t sm:w-96 dark:bg-gray-700'>
+            <div className='flex items-center justify-center w-full h-48 bg-san-juan-300 rounded-t sm:w-96 dark:bg-san-juan-700'>
                 <svg
-                    className='w-10 h-10 text-gray-200 dark:text-gray-600'
+                    className='w-10 h-10 text-san-juan-200 dark:text-san-juan-600'
                     aria-hidden='true'
                     xmlns='http://www.w3.org/2000/svg'
                     fill='currentColor'
