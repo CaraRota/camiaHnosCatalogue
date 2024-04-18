@@ -8,11 +8,13 @@ const ErrorAlert = ({ error, setError }) => {
 
     return (
         <div
-            className='flex flex-col bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative'
+            className='flex flex-col px-4 py-3 mt-5 w-96 bg-red-100 border border-red-400 text-red-700 rounded-md'
             role='alert'>
             <strong className='font-bold'>Holy smokes!</strong>
-            <span className='block mx-auto'>{error}</span>
-            <a onClick={handleReload} className='cursor-pointer mx-auto font-bold'>
+            <span className='mt-2 text-red-400 mx-auto'>{error}</span>
+            <a
+                onClick={handleReload}
+                className='mt-2 mx-auto cursor-pointer font-bold hover:text-red-600'>
                 <span>Click para recargar</span>
             </a>
         </div>
