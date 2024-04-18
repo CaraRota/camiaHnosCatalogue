@@ -12,6 +12,7 @@ import ProductImage from "./ProductImage";
 const ProductsCard = ({ product, chargePayments }) => {
     const { cards, boston } = chargePayments;
 
+    // Destructuring product
     const title = product[0];
     const brand = product[1];
     const description = product[2];
