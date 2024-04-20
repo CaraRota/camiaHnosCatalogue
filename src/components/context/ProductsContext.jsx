@@ -10,6 +10,7 @@ export const ProductsProvider = ({ children }) => {
     const sheetName = "Catalogo"; // Name of the Tab in Google Sheet
     const startRow = 2; // Skip header
     const [chargePayments, setChargePayments] = useState({});
+    const [filteredProducts, setFilteredProducts] = useState([]);
 
     const handleChargePayments = (percentageArray, fixedArray) => {
         const cards = [
@@ -66,7 +67,6 @@ export const ProductsProvider = ({ children }) => {
                     results[3][9],
                 ];
                 const fixedArray = [results[0][10], results[1][10], results[2][10], results[3][10]];
-
                 handleChargePayments(percentageArray, fixedArray);
             } catch (error) {
                 setError(error.message);
@@ -78,7 +78,16 @@ export const ProductsProvider = ({ children }) => {
         fetchData();
     }, []);
 
-    const contextValue = { data, loading, error, chargePayments };
+    const contextValue = {
+        data,
+        setData,
+        loading,
+        error,
+        chargePayments,
+        setError,
+        filteredProducts,
+        setFilteredProducts,
+    };
 
     return <ProductsContext.Provider value={contextValue}>{children}</ProductsContext.Provider>;
 };

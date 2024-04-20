@@ -15,7 +15,7 @@ const Homepage = () => {
                     setError={setError}
                 />
             )}
-            {/* <DropdownMenu /> */}
+            <DropdownMenu />
             <Products />
         </div>
     );
