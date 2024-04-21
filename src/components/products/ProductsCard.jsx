@@ -9,6 +9,8 @@ import bostonIcon from "../../assets/bostonIcon.png";
 import CalculateInstallments from "./CalculateInstallments";
 import ProductImage from "./ProductImage";
 
+import "animate.css";
+
 const ProductsCard = ({ product, chargePayments }) => {
     const { cards, boston } = chargePayments;
 
@@ -25,7 +27,7 @@ const ProductsCard = ({ product, chargePayments }) => {
     });
 
     return (
-        <div className='mx-auto bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
+        <div className='animate__animated animate__fadeIn mx-auto bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
             <ProductImage image={image} title={title} />
             <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
