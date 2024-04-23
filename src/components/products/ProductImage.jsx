@@ -16,9 +16,9 @@ const ProductImage = ({ image, title }) => {
         <div
             role='status'
             className='space-y-8 animate-pulse md:space-y-0 md:space-x-8 rtl:space-x-reverse md:flex md:items-center'>
-            <div className='flex items-center justify-center w-full h-48 bg-san-juan-300 rounded-t sm:w-96 dark:bg-san-juan-700'>
+            <div className='flex items-center justify-center w-full h-48 bg-san-juan-300 rounded-t sm:w-96'>
                 <svg
-                    className='w-10 h-10 text-san-juan-200 dark:text-san-juan-600'
+                    className='w-10 h-10 text-san-juan-200'
                     aria-hidden='true'
                     xmlns='http://www.w3.org/2000/svg'
                     fill='currentColor'

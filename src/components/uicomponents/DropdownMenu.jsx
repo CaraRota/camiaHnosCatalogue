@@ -41,8 +41,8 @@ const DropdownMenu = () => {
     }, [openMenu]);
 
     return (
-        <div className='flex w-screen mx-auto dark:bg-san-juan-900 justify-center items-center'>
-            <div className='text-san-juan-900 dark:text-san-juan-100 mt-5'>
+        <div className='flex w-screen mx-autojustify-center items-center'>
+            <div className='text-san-juan-900 mt-5'>
                 <div id='dropdownMenu' className='relative w-full group'>
                     <button
                         onClick={() => {
@@ -71,21 +71,21 @@ const DropdownMenu = () => {
                     </button>
                     <div
                         className={`${firstUpdate ? "invisible" : null}
-                        absolute z-[99] top-[110%] left-[11%] translate-x-[-50%] rounded-md overflow-hidden shadow-lg min-w-[200px] w-max duration-200 p-1 bg-san-juan-100 dark:bg-san-juan-800 border border-dimmed text-xs md:text-sm ${
+                        absolute z-[99] top-[110%] left-[11%] translate-x-[-50%] rounded-md overflow-hidden shadow-lg min-w-[200px] w-max duration-200 p-1 bg-san-juan-100 border border-dimmed text-xs md:text-sm ${
                             openMenu
                                 ? "animate__animated animate__flipInX"
                                 : "animate__animated animate__flipOutX"
                         }`}>
                         <div
                             onClick={() => handleFilterCategories(placeholder)}
-                            className='flex items-center justify-center w-full cursor-pointer hover:bg-white dark:hover:bg-san-juan-900 dark:bg-san-juan-800 hover:text-link px-3 py-2 rounded-md'>
+                            className='flex items-center justify-center w-full cursor-pointer hover:bg-white hover:text-link px-3 py-2 rounded-md'>
                             {placeholder}
                         </div>
                         {categories.map((category, index) => (
                             <div
                                 key={index}
                                 onClick={() => handleFilterCategories(category)}
-                                className='flex items-center gap-2 w-full cursor-pointer hover:bg-white dark:hover:bg-san-juan-900 dark:bg-san-juan-800 hover:text-link px-3 py-2 rounded-md'>
+                                className='flex items-center gap-2 w-full cursor-pointer hover:bg-white hover:text-link px-3 py-2 rounded-md'>
                                 {categoryIcons[category] ? (
                                     categoryIcons[category]
                                 ) : (
