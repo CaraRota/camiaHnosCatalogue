@@ -41,7 +41,7 @@ const DropdownMenu = () => {
     }, [openMenu]);
 
     return (
-        <div className='flex w-screen mx-autojustify-center items-center'>
+        <div className='flex w-screen mx-auto justify-center items-center'>
             <div className='text-san-juan-900 mt-5'>
                 <div id='dropdownMenu' className='relative w-full group'>
                     <button
@@ -49,7 +49,7 @@ const DropdownMenu = () => {
                             setOpenMenu(!openMenu);
                             setFirstUpdate(false);
                         }}
-                        className='flex items-center justify-between py-5 px-4 w-full min-w-64 md:text-sm text-site bg-white hover:bg-san-juan-100 border rounded-full focus:border-brand focus:outline-none focus:ring-0 font-semibold'>
+                        className='flex items-center justify-between py-5 px-4 w-full min-w-64 md:text-sm text-site text-xs bg-white hover:bg-san-juan-100 border rounded-full focus:border-brand focus:outline-none focus:ring-0 font-semibold'>
                         <span
                             className={`absolute ${
                                 openMenu
