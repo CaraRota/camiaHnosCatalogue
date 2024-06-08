@@ -25,10 +25,11 @@ const ProductsCard = ({ product, chargePayments }) => {
         currency: "ARS",
         maximumFractionDigits: 0,
     });
+    const ribbon = product[7];
 
     return (
         <div className='animate__animated animate__fadeIn mx-auto bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg hover:shadow-san-juan-200 transition duration-300 ease-in-out max-w-sm'>
-            <ProductImage image={image} title={title} />
+            <ProductImage image={image} title={title} ribbon={ribbon} />
             <div className='p-4'>
                 <div className='flex justify-between items-center mb-3'>
                     <span className='bg-san-juan-500 text-white text-sm px-2 py-1 rounded-full uppercase font-bold'>

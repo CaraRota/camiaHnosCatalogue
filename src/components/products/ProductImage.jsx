@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import ProductsRibbon from "../uicomponents/ProductsRibbon";
 
-const ProductImage = ({ image, title }) => {
+const ProductImage = ({ image, title, ribbon }) => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -11,7 +12,10 @@ const ProductImage = ({ image, title }) => {
     }, [image]);
 
     return !isLoading ? (
-        <img className='focus:outline-none object-fit h-48 mx-auto' alt={title} src={image} />
+        <div className='relative overflow-hidden'>
+            {ribbon && <ProductsRibbon>{ribbon}</ProductsRibbon>}
+            <img className='focus:outline-none object-fit h-48 mx-auto' alt={title} src={image} />
+        </div>
     ) : (
         <div
             role='status'
